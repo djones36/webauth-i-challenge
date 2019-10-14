@@ -3,16 +3,16 @@ const server = express();
 const mw = require('../middleware/globalMiddleware');
 
 //Routes imports
-const registerRoute = require('');
-const loginRoute = require('');
-const userRoute = require('');
+// const registerRoute = require('');
+// const loginRoute = require('');
+const userRoute = require('./routes/userRoute');
 
 server.use(express.json(), mw.logger);
 
 //Routes
 // server.use('/api/register', registerRoute);
 // server.use('/api/login', loginRoute);
-// server.use('/api/user', userRoute);
+server.use('/api/users', userRoute);
 
 
 
