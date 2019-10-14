@@ -1,10 +1,22 @@
-// const express = require('express');
+const express = require('express');
+const Users = require('../helpers/userModel');
+const router = express.Router();
+const bcrypt = require('bcryptjs');
+const errorRef = require('../../middleware/errorRef');
 
-// const router = express.Router();
+//Post for user to create a new user account
+router.post('/', (req, res) => {
+    let user = req.body;
+    const hash = bcrypt.hashSync(user.password, 8);
+    user.password = hash;
 
-// const errorRef = require('../../middleware/errorRef');
+    Users.add(user)
+        .then(saved => {
+            res.status(201).json(saved);
+        })
+        .catch(error => {
+            res.status(500).json(errorRef);
+        });
+})
 
-// //Post for user to create a new user account
-
-
-// module.exports = router;
+module.exports = router;
