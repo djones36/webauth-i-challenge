@@ -6,7 +6,11 @@ const mw = require('../middleware/globalMiddleware');
 server.use(express.json(), mw.logger);
 
 //Routes
-// server.use('')
+// server.use('/api/register', registerRoute);
+// server.use('/api/login', loginRoute);
+// server.use('/api/user', userRoute);
+
+
 
 //Deployment 
 server.get('/', (req, res) => {
