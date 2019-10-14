@@ -6,7 +6,7 @@ module.exports = {
     client: 'sqlite3',
     useNullAsDefault: true,
     connection: {
-      filename: './database/file/authentication_api.db3',
+      filename: './database/authentication_api.db3',
     },
     migrations: {
       directory: './database/migrations',
@@ -22,19 +22,19 @@ module.exports = {
     },
   },
 
-  production: {
-    client: 'pg',
-    connection: prodConnection,
-    pool: {
-      min: 2,
-      max: 10
-    },
-    migrations: {
-      directory: './database/migrations',
-    },
-    seeds: {
-      directory: './database/seeds',
-    },
-  }
+  // production: {
+  //   client: 'pg',
+  //   connection: prodConnection,
+  //   pool: {
+  //     min: 2,
+  //     max: 10
+  //   },
+  //   migrations: {
+  //     directory: './database/migrations',
+  //   },
+  //   seeds: {
+  //     directory: './database/seeds',
+  //   },
+  // }
 
 };

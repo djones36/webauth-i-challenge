@@ -2,6 +2,10 @@ const express = require('express');
 const server = express();
 const mw = require('../middleware/globalMiddleware');
 
+//Routes imports
+const registerRoute = require('');
+const loginRoute = require('');
+const userRoute = require('');
 
 server.use(express.json(), mw.logger);
 
