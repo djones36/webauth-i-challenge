@@ -5,14 +5,14 @@ const helmet = require('helmet');
 
 //Routes imports
 const registerRoute = require('./routes/registerRoute');
-// const loginRoute = require('');
+const loginRoute = require('./routes/loginRoute');
 const userRoute = require('./routes/userRoute');
 server.use(helmet());
 server.use(express.json(), mw.logger);
 
 //Routes
 server.use('/api/register', registerRoute);
-// server.use('/api/login', loginRoute);
+server.use('/api/login', loginRoute);
 server.use('/api/users', userRoute);
 
 
