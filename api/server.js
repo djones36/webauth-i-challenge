@@ -30,7 +30,7 @@ const sessionConfiguration = {
 const registerRoute = require('./routes/registerRoute');
 const loginRoute = require('./routes/loginRoute');
 const AuthUserRoute = require('./routes/AuthUserRoute');
-// const logoutRoute = require('./routes/logoutRoute');
+const logoutRoute = require('./routes/logoutRoute');
 
 server.use(helmet());
 server.use(express.json(), mw.logger);
@@ -40,7 +40,7 @@ server.use(sessions(sessionConfiguration));
 server.use('/api/register', registerRoute);
 server.use('/api/login', loginRoute);
 server.use('/api/users', AuthUserRoute);
-//server.use('/api/logout',logutRoute);
+server.use('/api/logout', logoutRoute);
 
 
 //Deployment 

@@ -24,7 +24,7 @@ router.post('/', (req, res) => {
             }
         })
         .catch(error => {
-            res.status(500).json(errorRef(error));
+            res.status(500).json(errorRef(error), { message: "logout failed" });
         });
 })
 

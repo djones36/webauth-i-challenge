@@ -15,7 +15,7 @@ router.post('/', (req, res) => {
             res.status(201).json(saved);
         })
         .catch(error => {
-            res.status(500).json(errorRef);
+            res.status(500).json(errorRef(error), { message: 'failed to create account' });
         });
 })
 

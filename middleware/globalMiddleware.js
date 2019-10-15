@@ -9,13 +9,12 @@ function logger(req, res, next) {
     next();
 }
 
-//restricted autho route
+//restricted auth route
 function restricted(req, res, next) {
-
     if (req.session && req.session.username) {
         next();
     } else {
-        res.status(400).json({ message: 'You cannot pass!' });
+        res.status(400).json({ message: 'Restricted access, login required' });
     }
 };
 
