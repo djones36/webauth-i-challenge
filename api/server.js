@@ -2,7 +2,7 @@ const express = require('express');
 const server = express();
 const mw = require('../middleware/globalMiddleware');
 const helmet = require('helmet');
-
+const cors = require('cors');
 const sessions = require('express-session');
 const KnexSessionStore = require('connect-session-knex')(sessions);
 const knexConfig = require('../database/dbConfig');
@@ -32,9 +32,15 @@ const loginRoute = require('./routes/loginRoute');
 const AuthUserRoute = require('./routes/AuthUserRoute');
 const logoutRoute = require('./routes/logoutRoute');
 
-server.use(helmet());
-server.use(express.json(), mw.logger);
-server.use(sessions(sessionConfiguration));
+server.use(helmet(),
+    express.json(),
+    mw.logger,
+    cors(),
+    sessions(sessionConfiguration),
+);
+// server.use(express.json(), mw.logger);
+// server.use(cors());
+// server.use(sessions(sessionConfiguration));
 
 //Routes
 server.use('/api/register', registerRoute);
