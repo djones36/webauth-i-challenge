@@ -39,7 +39,7 @@ server.use(sessions(sessionConfiguration));
 //Routes
 server.use('/api/register', registerRoute);
 server.use('/api/login', loginRoute);
-server.use('/api/users', AuthUserRoute);
+server.use('/api/restricted/users', AuthUserRoute);
 server.use('/api/logout', logoutRoute);
 
 
