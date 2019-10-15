@@ -6,11 +6,11 @@ const errorRef = require('../../middleware/errorRef');
 
 const Users = require('../helpers/userModel')
 
-const restricted = require('../../middleware/restrictedMiddleware');
+const middlewareCheck = require('../../middleware/globalMiddleware');
+
 //Get request to display all users
 
-
-router.get('/', restricted, (req, res) => {
+router.get('/', middlewareCheck.restricted, (req, res) => {
     console.log('username', req.session.username);
     Users.find()
         .then(users => {
